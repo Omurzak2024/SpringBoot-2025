@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: SpringBoot-2025
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: 3223
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8080
