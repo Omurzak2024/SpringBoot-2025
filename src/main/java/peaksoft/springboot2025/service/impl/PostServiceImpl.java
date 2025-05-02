@@ -31,7 +31,10 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<Post> getAllPostsByUserId(Long userId) {
-        return postRepository.getAllPostsByUserId(userId);
+        User user = userRepository.findById(userId).orElseThrow(()
+                -> new RuntimeException("User not found with id: " + userId)
+        );
+        return user.getPosts();
     }
 
     @Override
@@ -56,9 +59,9 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void deletePost(Post post) {
-        postRepository.findById(post.getId()).orElseThrow(
-                () -> new NoSuchElementException(String.format("Post with id %s not found", post.getId()))
+    public void deletePost(Long postId) {
+        Post post = postRepository.findById(postId).orElseThrow(
+                () -> new NoSuchElementException(String.format("Post with id %s not found", postId))
         );
         postRepository.delete(post);
 

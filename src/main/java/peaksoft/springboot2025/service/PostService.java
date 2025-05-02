@@ -9,7 +9,7 @@ public interface PostService {
     List<Post> getAllPostsByUserId(Long userId);
     Post getPostById(Long postId);
     void updatePost(Long postId, Post newPost);
-    void deletePost(Post post);
+    void deletePost(Long postId);
 
     List<Post> searchPosts(String word);
 
