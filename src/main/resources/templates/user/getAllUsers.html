@@ -24,7 +24,7 @@
         <td th:text="${user.getAge()}">Age</td>
         <td><a th:href="@{/api/users/{email}/getUser (email=${user.getEmail()})}">Update</a> </td>
         <td><a th:href="@{/api/users/{id}/delete (id=${user.getId()})}">Delete</a> </td>
-        <td><a th:href="@{/post/{userId}(userId=${user.getId()})}">Posts</a> </td>
+        <td><a th:href="@{/api/posts/{userId}(userId=${user.getId()})}">Posts</a> </td>
     </tr>
 </table>
 <br>
